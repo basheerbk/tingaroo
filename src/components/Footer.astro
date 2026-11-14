@@ -1,0 +1,28 @@
+---
+import Logo from './Logo.astro';
+import { formatDate } from '../consts';
+
+interface Props {
+  lastUpdated: Date;
+}
+
+const { lastUpdated } = Astro.props;
+---
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <div class="brand">
+        <Logo size={36} />
+        <span class="brand-name brand-name-sm">Tingaroo</span>
+      </div>
+      <p>Scratch and STEM projects for curious kids.</p>
+      <nav aria-label="Footer">
+        <ul class="footer-links">
+          <li><a href="/about/">About</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="footer-legal">Tingaroo is not affiliated with or endorsed by the Scratch Team, the MIT Media Lab or TurboWarp. Scratch is developed by the Lifelong Kindergarten Group at the MIT Media Lab and is free at <a href="https://scratch.mit.edu">scratch.mit.edu</a>. Last updated {formatDate(lastUpdated)}. © {lastUpdated.getUTCFullYear()} Tingaroo · By Basheer · <a href="https://www.basheer.diy">www.basheer.diy</a></p>
+  </div>
+</footer>

@@ -1,56 +1,19 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tingaroo: Scratch and STEM projects for curious kids</title>
-<meta name="description" content="Step-by-step Scratch and STEM projects for grades 3 to 8, with tutorials, worksheets and lesson plans for parents and teachers.">
-<meta name="theme-color" content="#fff8ec">
-<meta property="og:title" content="Tingaroo: Scratch and STEM projects for curious kids">
-<meta property="og:description" content="Step-by-step Scratch projects for grades 3 to 8, with the guides, worksheets and lesson plans parents and teachers need to run them.">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Tingaroo">
-<meta name="twitter:card" content="summary">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 96 96%27%3E%3Crect width=%2796%27 height=%2796%27 rx=%2728%27 fill=%27%23ff7a1a%27/%3E%3Ccircle cx=%2737%27 cy=%2735%27 r=%276%27 fill=%27%23ffc93c%27/%3E%3Ccircle cx=%2759%27 cy=%2735%27 r=%276%27 fill=%27%23ffc93c%27/%3E%3Ccircle cx=%2748%27 cy=%2750%27 r=%2717%27 fill=%27%23ffc93c%27/%3E%3Cpath d=%27M20 58 H76 V64 C76 80 63 90 48 90 C33 90 20 80 20 64 Z%27 fill=%27%232b2d6e%27/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<a class="skip" href="#main">Skip to main content</a>
-
-<header class="container site-header">
-  <a class="brand" href="./">
-    <svg width="44" height="44" viewBox="0 0 96 96" aria-hidden="true" focusable="false"><rect width="96" height="96" rx="28" fill="#ff7a1a"/><circle cx="37" cy="35" r="6" fill="#ffc93c"/><circle cx="59" cy="35" r="6" fill="#ffc93c"/><circle cx="48" cy="50" r="17" fill="#ffc93c"/><circle cx="42" cy="46" r="2.6" fill="#1b1b3a"/><circle cx="54" cy="46" r="2.6" fill="#1b1b3a"/><path d="M20 58 H76 V64 C76 80 63 90 48 90 C33 90 20 80 20 64 Z" fill="#2b2d6e"/></svg>
-    <span class="brand-name">Tingaroo</span>
-  </a>
-  <nav aria-label="Main" class="site-nav">
-    <a href="#grades">Projects</a>
-    <a href="#teachers">For teachers</a>
-    <a href="#parents">For parents</a>
-    <a href="#faq">FAQ</a>
-    <a href="#signup" class="pill-link">Free tutorial</a>
-  </nav>
-</header>
-
-<main id="main">
-
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SignupForm from '../components/SignupForm.astro';
+---
+<BaseLayout
+  title="Tingaroo: Scratch and STEM projects for curious kids"
+  description="Step-by-step Scratch and STEM projects for grades 3 to 8, with tutorials, worksheets and lesson plans for parents and teachers."
+  ogDescription="Step-by-step Scratch projects for grades 3 to 8, with the guides, worksheets and lesson plans parents and teachers need to run them."
+>
   <section class="container hero" aria-labelledby="hero-title">
     <div class="hero-copy">
       <p class="eyebrow eyebrow-accent">Scratch and STEM projects for curious kids</p>
       <h1 id="hero-title">Build it. Code it. Hop to the next one.</h1>
       <p class="lead">Step-by-step Scratch projects for grades 3 to 8, with the guides, worksheets and lesson plans parents and teachers need to run them.</p>
 
-      <form class="signup-form" id="form-hero" novalidate>
-        <label for="email-hero" class="signup-label">Get a free project tutorial by email</label>
-        <div class="signup-row">
-          <input id="email-hero" type="email" name="email" required autocomplete="email" placeholder="you@example.com" aria-describedby="hint-hero">
-          <button type="submit" class="btn btn-orange">Send me the tutorial</button>
-        </div>
-        <p class="form-error" id="err-hero" hidden role="alert">Please enter a valid email address.</p>
-        <p class="form-hint" id="hint-hero">For parents and teachers (adults only). We email your free tutorial and occasional project tips. Unsubscribe any time.</p>
-      </form>
+      <SignupForm id="hero" label="Get a free project tutorial by email" buttonLabel="Send me the tutorial" />
     </div>
 
     <div class="hero-art">
@@ -142,13 +105,14 @@
         <p class="lead-dark">Launch a bird across the screen and knock down a tower. Ten steps, every block pictured, and the finished project file to open and play.</p>
       </div>
       <div class="signup-panel">
-        <form class="signup-form" id="form-foot" novalidate>
-          <label for="email-foot" class="signup-label signup-label-lg">Where should we send it?</label>
-          <input id="email-foot" type="email" name="email" required autocomplete="email" placeholder="you@example.com" aria-describedby="hint-foot">
-          <button type="submit" class="btn btn-navy">Send me the free tutorial</button>
-          <p class="form-error" id="err-foot" hidden role="alert">Please enter a valid email address.</p>
-          <p class="form-hint" id="hint-foot">For parents and teachers (adults only). We email your free tutorial and occasional project tips. Unsubscribe any time.</p>
-        </form>
+        <SignupForm
+          id="foot"
+          label="Where should we send it?"
+          buttonLabel="Send me the free tutorial"
+          layout="stacked"
+          buttonStyle="navy"
+          largeLabel
+        />
       </div>
     </div>
   </section>
@@ -178,22 +142,4 @@
       </div>
     </div>
   </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <div class="footer-brand">
-      <div class="brand">
-        <svg width="36" height="36" viewBox="0 0 96 96" aria-hidden="true" focusable="false"><rect width="96" height="96" rx="28" fill="#ff7a1a"/><circle cx="37" cy="35" r="6" fill="#ffc93c"/><circle cx="59" cy="35" r="6" fill="#ffc93c"/><circle cx="48" cy="50" r="17" fill="#ffc93c"/><circle cx="42" cy="46" r="2.6" fill="#1b1b3a"/><circle cx="54" cy="46" r="2.6" fill="#1b1b3a"/><path d="M20 58 H76 V64 C76 80 63 90 48 90 C33 90 20 80 20 64 Z" fill="#2b2d6e"/></svg>
-        <span class="brand-name brand-name-sm">Tingaroo</span>
-      </div>
-      <p>Scratch and STEM projects for curious kids.</p>
-    </div>
-    <p class="footer-legal">Tingaroo is not affiliated with or endorsed by the Scratch Team, the MIT Media Lab or TurboWarp. Scratch is developed by the Lifelong Kindergarten Group at the MIT Media Lab and is free at <a href="https://scratch.mit.edu">scratch.mit.edu</a>. © 2026 Tingaroo · By Basheer · <a href="https://www.basheer.diy">www.basheer.diy</a></p>
-  </div>
-</footer>
-
-<script src="main.js"></script>
-</body>
-</html>
+</BaseLayout>

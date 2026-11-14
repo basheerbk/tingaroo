@@ -1,0 +1,45 @@
+---
+interface Props {
+  /** Unique per page; used to build the form, input, error and hint ids. */
+  id: string;
+  label: string;
+  buttonLabel: string;
+  /** "inline" puts the input and button on one row when there is room. */
+  layout?: 'inline' | 'stacked';
+  buttonStyle?: 'orange' | 'navy';
+  largeLabel?: boolean;
+}
+
+const {
+  id,
+  label,
+  buttonLabel,
+  layout = 'inline',
+  buttonStyle = 'orange',
+  largeLabel = false,
+} = Astro.props;
+
+const inputId = `email-${id}`;
+const errorId = `err-${id}`;
+const hintId = `hint-${id}`;
+---
+<form class="signup-form" id={`form-${id}`} data-signup novalidate>
+  <label for={inputId} class:list={['signup-label', { 'signup-label-lg': largeLabel }]}>{label}</label>
+  {layout === 'inline' ? (
+    <div class="signup-row">
+      <input id={inputId} type="email" name="email" required autocomplete="email" placeholder="you@example.com" aria-describedby={hintId}>
+      <button type="submit" class={`btn btn-${buttonStyle}`}>{buttonLabel}</button>
+    </div>
+  ) : (
+    <>
+      <input id={inputId} type="email" name="email" required autocomplete="email" placeholder="you@example.com" aria-describedby={hintId}>
+      <button type="submit" class={`btn btn-${buttonStyle}`}>{buttonLabel}</button>
+    </>
+  )}
+  <p class="form-error" id={errorId} hidden role="alert">Please enter a valid email address.</p>
+  <p class="form-hint" id={hintId}>For parents and teachers (adults only). We email your free tutorial and occasional project tips. Unsubscribe any time. See our <a href="/privacy/">privacy policy</a>.</p>
+</form>
+
+<script>
+  import '../scripts/signup.js';
+</script>
